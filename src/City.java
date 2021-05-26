@@ -82,4 +82,30 @@ class City {
             return lhs.getName().compareTo(rhs.getName());
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        City city = (City) o;
+
+        if (idCity != city.idCity) return false;
+        if (population != city.population) return false;
+        if (foundation != city.foundation) return false;
+        if (name != null ? !name.equals(city.name) : city.name != null) return false;
+        if (region != null ? !region.equals(city.region) : city.region != null) return false;
+        return district != null ? district.equals(city.district) : city.district == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idCity;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (region != null ? region.hashCode() : 0);
+        result = 31 * result + (district != null ? district.hashCode() : 0);
+        result = 31 * result + population;
+        result = 31 * result + foundation;
+        return result;
+    }
 }

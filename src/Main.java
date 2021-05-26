@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("city.txt");
         List<City> cities = new ArrayList<>();
+        File file = new File("city.txt");
         Scanner sc;
         try {
             sc = new Scanner(file);
@@ -15,7 +15,8 @@ public class Main {
                 String[] strings = line.split(";");
                 cities.add(new City(Integer.parseInt(strings[0]), strings[1], strings[2], strings[3], Integer.parseInt(strings[4]), Integer.parseInt(strings[5])));
             }
-        } catch (IOException e) {
+        } catch (
+                IOException e) {
             e.printStackTrace();
         }
 
